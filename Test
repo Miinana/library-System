@@ -1,0 +1,18 @@
+public class Test {
+    public Test() {
+    }
+
+    public static void main(String[] args) {
+        Book book1 = new Book("hello", 12345, 50);
+        Book book2 = new Book("family and friends", 112233, 85);
+        Book book3 = new Book("American File", 1133, 120);
+        Library library1 = new Library("Iskandar", 2203305);
+        Library library2 = new Library("Beautiful", 90923012);
+        library1.addBook(book1);
+        library1.addBook(book2);
+        library2.addBook(book3);
+        book3.setLoan(false);
+        System.out.println(library1.toString());
+        System.out.println(library2.toString());
+    }
+}
