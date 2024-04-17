@@ -1,0 +1,55 @@
+
+public class Book {
+    private String title;
+    private int isbn;
+    private int numPages;
+    private boolean isLoan;
+
+    public Book(String title, int isbn, int numPages) {
+        this.title = title;
+        this.isbn = isbn;
+        this.numPages = numPages;
+        this.isLoan = false;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public int getIsbn() {
+        return this.isbn;
+    }
+
+    public void setIsbn(int isbn) {
+        this.isbn = isbn;
+    }
+
+    public int getNumPages() {
+        return this.numPages;
+    }
+
+    public void setNumPages(int numPages) {
+        this.numPages = numPages;
+    }
+
+    public void setLoan(boolean loan) {
+        this.isLoan = loan;
+    }
+
+    public boolean isLoan() {
+        return true;
+    }
+
+    public String isLoanText() {
+        return this.isLoan() ? "Available" : "Not Available";
+    }
+
+    public String toString() {
+        String result = this.title;
+        return result + "  | " + this.isbn + " " + this.numPages + " | " + this.isLoanText();
+    }
+}
