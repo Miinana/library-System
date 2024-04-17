@@ -1,0 +1,56 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Library {
+    private final String name;
+    private int phoneNumber;
+    private ArrayList<Book> Collection;
+
+    public Library(String name, int phoneNumber) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.Collection = new ArrayList();
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getPhoneNumber() {
+        return this.phoneNumber;
+    }
+
+    public void addBook(Book book) {
+        this.Collection.add(book);
+    }
+
+    public boolean contains(String title) {
+        Iterator var2 = this.Collection.iterator();
+
+        Book book;
+        do {
+            if (!var2.hasNext()) {
+                return false;
+            }
+
+            book = (Book)var2.next();
+        } while(!book.getTitle().equals(title));
+
+        return true;
+    }
+
+    public String toString() {
+        String result = "| Library " + this.name + "| phone number " + this.phoneNumber + "|\n--------------------------------------------\n|      Book name       |    ISBN   |  Number of pages | Is Loan |\n-----------------------------------------------------------------\n";
+
+        Book book;
+        for(Iterator var2 = this.Collection.iterator(); var2.hasNext(); result = result + String.format("| %-20s | %-15s | %-5s | %-12s |\n", book.getTitle(), book.getIsbn(), book.getNumPages(), book.isLoanText()) + "-----------------------------------------------------------------\n") {
+            book = (Book)var2.next();
+        }
+
+        return result;
+    }
+}
